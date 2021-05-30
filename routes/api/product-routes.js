@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     })
     res.status(200).json(productData);
   }
-  catch {
+  catch (err) {
     res.status(400).json(err);
   }
   // be sure to include its associated Category and Tag data
@@ -47,7 +47,7 @@ router.get('/:id', async (req, res) => {
     })
     res.status(200).json(productData);
   }
-  catch {
+  catch (err) {
     res.status(400).json(err);
   }
   // be sure to include its associated Category and Tag data
@@ -141,7 +141,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'No product found' });
     }
   }
-  catch {
+  catch (err) {
     res.status(400).json(err);
   }
 });
