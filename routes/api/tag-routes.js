@@ -15,7 +15,8 @@ router.get('/', async (req, res) => {
       }
     })
     res.status(200).json(tagData);
-  } catch (err) {
+  }
+  catch (err) {
     res.status(400).json(err);
   }
   // be sure to include its associated Product data
@@ -24,7 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // find a single tag by its `id`
   try {
-    const tagData = await Product.findOne({
+    const tagData = await Tag.findOne({
       where: {
         id: req.params.id
       },
