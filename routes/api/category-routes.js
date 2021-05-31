@@ -23,14 +23,14 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   try {
-    const categoryDate = await Category.findOne({
+    const categoryData = await Category.findOne({
       where: {
         id: req.params.id
       },
-      include: {
+      include: [{
         model: Product,
         attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
-      }
+      }]
     })
     res.status(200).json(categoryData);
   }
